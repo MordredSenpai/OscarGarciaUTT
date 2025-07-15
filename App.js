@@ -55,25 +55,32 @@ export default function App() {
         ) : (
           <>
             <Text style={styles.title}>Oscar´s Dev Login</Text>
-            <SignInForm
-              email={email}
-              password={password}
-              onEmailChange={setEmail}
-              onPasswordChange={setPassword}
-              onLogin={handleLogin}
-            />
             {!showRegister ? (
-              <View style={styles.button}>
-                <Button title="Registrarse" onPress={() => setShowRegister(true)} color="#10B981" />
-              </View>
+              <>
+                <SignInForm
+                  email={email}
+                  password={password}
+                  onEmailChange={setEmail}
+                  onPasswordChange={setPassword}
+                  onLogin={handleLogin}
+                />
+                <View style={styles.button}>
+                  <Button title="Registrarse" onPress={() => setShowRegister(true)} color="#10B981" />
+                </View>
+              </>
             ) : (
-              <SignUpForm
-                email={email}
-                password={password}
-                onEmailChange={setEmail}
-                onPasswordChange={setPassword}
-                onRegister={handleRegister}
-              />
+              <>
+                <SignUpForm
+                  email={email}
+                  password={password}
+                  onEmailChange={setEmail}
+                  onPasswordChange={setPassword}
+                  onRegister={handleRegister}
+                />
+                <View style={styles.button}>
+                  <Button title="Volver al login" onPress={() => setShowRegister(false)} color="#3B82F6" />
+                </View>
+              </>
             )}
           </>
         )}
